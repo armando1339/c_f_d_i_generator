@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/armando1339/c_f_d_i_generator.svg?branch=master)](https://travis-ci.org/armando1339/c_f_d_i_generator)
+[![Build Status](https://travis-ci.org/armando1339/c_f_d_i_generator.svg?branch=master)](https://travis-ci.org/armando1339/c_f_d_i_generator) [![Coverage Status](https://coveralls.io/repos/github/armando1339/c_f_d_i_generator/badge.svg?branch=master)](https://coveralls.io/github/armando1339/c_f_d_i_generator?branch=master)
+
 
 # CFDIGenerator
 
