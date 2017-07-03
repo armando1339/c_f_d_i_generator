@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "c_f_d_i_generator"
+require 'coveralls'
+Coveralls.wear!
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
