@@ -1,5 +1,5 @@
 class Hello
-	def say_hello
-		puts 'hello putos'
-	end
+	def pow(a, b)
+    a ** b
+  end
 end

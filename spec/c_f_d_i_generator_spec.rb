@@ -5,12 +5,12 @@ RSpec.describe CFDIGenerator do
     expect(CFDIGenerator::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(false)
-  end
-
-  describe Hello do
-  	@hello = Hello.new
-  	@hello.say_hello
-  end
+  describe Hello do 
+	  context "first test" do
+	    it "is a test" do 
+	      @hello = Hello.new
+	      expect(@hello.pow(3, 2)).to eql(9)
+	    end
+	  end
+	end
 end
