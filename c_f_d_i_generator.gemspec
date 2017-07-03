@@ -6,7 +6,7 @@ require 'c_f_d_i_generator/version'
 Gem::Specification.new do |spec|
   spec.name          = "c_f_d_i_generator"
   spec.version       = CFDIGenerator::VERSION
-  spec.authors       = ["Armando Alejandre"]
+  spec.authors       = ["armando1339"]
   spec.email         = ["armando1339@gmail.com"]
 
   spec.summary       = %q{Write a short summary, because Rubygems requires one.}
