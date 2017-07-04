@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'c_f_d_i_generator/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "CFDIGenerator"
+  spec.name          = "c_f_d_i_generator"
   spec.version       = CFDIGenerator::VERSION
   spec.authors       = ["Armando Alejandre"]
   spec.email         = ["armando1339@gmail.com"]
