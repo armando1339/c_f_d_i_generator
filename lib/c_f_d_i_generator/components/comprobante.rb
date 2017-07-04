@@ -1,3 +1,5 @@
+require 'c_f_d_i_generator/components/component'
+
 module CFDIGenerator
 	module Components 
 		class Comprobante < Component
@@ -7,7 +9,7 @@ module CFDIGenerator
 					:no_certificado, :certificado, :condiciones_de_pago, :subtotal, 
 					:descuento, :moneda, :tipo_cambio, :total, 
 					:tipo_de_comprobante, :metodo_pago, :lugar_expedicion, :confirmacion
-			
+
 
 			# DESCRIPCIÓN: Inicializa el objeto con las variables de instancia necesarios.
 			#
