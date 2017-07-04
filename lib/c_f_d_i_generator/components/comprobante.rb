@@ -88,9 +88,9 @@ module CFDIGenerator
 			#
 			def build_component
 				scheme = {}
-				scheme.merge CONSTANTS_IN_THE_SCHEME
+				scheme.merge! CONSTANTS_IN_THE_SCHEME
 				@@scheme.each do |k,v|
-					scheme[k] = self.instance_variable_get("@#{v}") if self.respond_to?(v)
+					scheme[k] = self.instance_variable_get("@#{v}") if self.respond_to?(v) and self.instance_variable_get("@#{v}").blank?
 				end
 				return scheme
 			end
