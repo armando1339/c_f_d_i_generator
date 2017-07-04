@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["armando1339@gmail.com"]
 
   spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.description   = %q{Generate XML (CFDI) files for invoices of Mexico.}
   # spec.homepage      = "Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
