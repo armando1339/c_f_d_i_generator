@@ -24,7 +24,16 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  
+  # NEW ADDS: New development dependencies added ->
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "coveralls"
+  # => end
+
+  # NEW ADDS: New dependencies added ->
+  spec.add_dependency 'nokogiri', '~> 1.8'
+  spec.add_dependency 'activemodel', '~> 5.1', '>= 5.1.2'
+  spec.add_dependency 'activesupport', '~> 5.1', '>= 5.1.2'
+  # => end
 end
