@@ -3,12 +3,42 @@ require 'c_f_d_i_generator/components/component'
 module CFDIGenerator
 	module Components 
 		class Comprobante < Component
+
+
+			CONSTANTS_IN_THE_SCHEME = {
+				'xmlns:cfdi' 					=> 		'http://www.sat.gob.mx/cfd/3',
+				'xmlns:xsi' 					=> 		'http://www.w3.org/2001/XMLSchema-instance',
+				'xsi:schemaLocation' 	=> 		'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd',
+				'Version'							=>		'3.3' # string, requerido
+			}
+
+
+			@@scheme = {
+				'Serie'								=>		:serie, # string, opcional
+				'Folio'								=>		:folio, # string, opcional
+				'Fecha'								=>		:fecha, # tdCFDI:t_FechaH, requerido	
+				'Sello'								=>		:sello, # string, requerido
+				'FormaPago'						=>		:forma_pago, # catCFDI:c_FormaPago, opcional
+				'NoCertificado'				=>		:no_certificado, # string, requerido
+				'Certificado'					=>		:certificado, # string, requerido
+				'CondicionesDePago'		=>		:condiciones_de_pago, # string, opcional
+				'SubTotal'						=>		:subtotal, #	tdCFDI:t_Importe, requerido
+				'Descuento'						=>		:descuento, # tdCFDI:t_Importe, opcional
+				'Moneda'							=>		:moneda, # catCFDI:c_Moneda, requerido
+				'TipoCambio'					=>		:tipo_cambio, # xs:decimal, opcional
+				'Total'								=>		:total, # tdCFDI:t_Importe, requerido	
+				'TipoDeComprobante'		=>		:tipo_de_comprobante, # catCFDI:c_TipoDeComprobante, requerido
+				'MetodoPago'					=>		:metodo_pago, # catCFDI:c_MetodoPago, opcional
+				'LugarExpedicion'			=>		:lugar_expedicion, # catCFDI:c_CodigoPostal, requerido
+				'Confirmacion'				=>		:confirmacion, # string, opcional 
+			}
+
+
 			# DESCRIPCIÓN: Permite acceso a los atributos, tanto de escritura como lectura.
 			#
-			attr_accessor :folio, :fecha, :sello, :forma_pago, 
-					:no_certificado, :certificado, :condiciones_de_pago, :subtotal, 
-					:descuento, :moneda, :tipo_cambio, :total, 
-					:tipo_de_comprobante, :metodo_pago, :lugar_expedicion, :confirmacion
+			attr_accessor :serie, :folio, :fecha, :sello, :forma_pago, :no_certificado, 
+				:certificado, :condiciones_de_pago, :subtotal, :descuento, :moneda, 
+				:tipo_cambio, :total, :tipo_de_comprobante, :metodo_pago, :lugar_expedicion, :confirmacion
 
 
 			# DESCRIPCIÓN: Inicializa el objeto con las variables de instancia necesarios.
@@ -16,7 +46,7 @@ module CFDIGenerator
 			# INVOCA: Component "c_f_d_i_emitter/_m_l_components/components" constructor
 			#
 			def initialize( attributes = {} )
-					super
+				super
 			end
 
 			
@@ -57,29 +87,12 @@ module CFDIGenerator
 			# el XML request para FEL.
 			#
 			def build_component
-				return {
-					'xmlns:cfdi' 					=> 		'http://www.sat.gob.mx/cfd/3',
-					'xmlns:xsi' 					=> 		'http://www.w3.org/2001/XMLSchema-instance',
-					'xsi:schemaLocation' 	=> 		'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd',
-					'Version'							=>		'3.3', # string, requerido
-					'Serie'								=>		'WUNDEMITVER33', # string, opcional
-					'Folio'								=>		self.folio, # string, opcional
-					'Fecha'								=>		self.fecha, # tdCFDI:t_FechaH, requerido	
-					'Sello'								=>		self.sello, # string, requerido
-					'FormaPago'						=>		self.forma_pago, # catCFDI:c_FormaPago, opcional
-					'NoCertificado'				=>		self.no_certificado, # string, requerido
-					'Certificado'					=>		self.certificado, # string, requerido
-					'CondicionesDePago'		=>		self.condiciones_de_pago, # string, opcional
-					'SubTotal'						=>		self.subtotal, #	tdCFDI:t_Importe, requerido
-					'Descuento'						=>		self.descuento, # tdCFDI:t_Importe, opcional
-					'Moneda'							=>		self.moneda, # catCFDI:c_Moneda, requerido
-					'TipoCambio'					=>		self.tipo_cambio, # xs:decimal, opcional
-					'Total'								=>		self.total, # tdCFDI:t_Importe, requerido	
-					'TipoDeComprobante'		=>		self.tipo_de_comprobante, # catCFDI:c_TipoDeComprobante, requerido
-					'MetodoPago'					=>		self.metodo_pago, # catCFDI:c_MetodoPago, opcional
-					'LugarExpedicion'			=>		self.lugar_expedicion, # catCFDI:c_CodigoPostal, requerido
-					'Confirmacion'				=>		self.confirmacion, # string, opcional 
-				}
+				scheme = {}
+				scheme.merge self.CONSTANTS_IN_THE_SCHEME
+				@@scheme.each do |k,v|
+					scheme[k] = self.instance_variable_get("@#{v}") if self.respond_to?(v)
+				end
+				return schema
 			end
 		end
 	end 
