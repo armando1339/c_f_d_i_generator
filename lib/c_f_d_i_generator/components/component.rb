@@ -1,3 +1,5 @@
+require 'active_model'
+
 module CFDIGenerator
 	module Components 
 		class Component
