@@ -13,7 +13,7 @@ module CFDIGenerator
 			}
 
 
-			@@scheme_1 = {
+			@@scheme = {
 				'Serie'								=>		:serie, # string, opcional
 				'Folio'								=>		:folio, # string, opcional
 				'Fecha'								=>		:fecha, # tdCFDI:t_FechaH, requerido	
@@ -89,10 +89,10 @@ module CFDIGenerator
 			def build_component
 				scheme = {}
 				scheme.merge CONSTANTS_IN_THE_SCHEME
-				@@scheme_1.each do |k,v|
+				@@scheme.each do |k,v|
 					scheme[k] = self.instance_variable_get("@#{v}") if self.respond_to?(v)
 				end
-				return schema
+				return scheme
 			end
 		end
 	end 
