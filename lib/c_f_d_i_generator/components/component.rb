@@ -42,7 +42,7 @@ module CFDIGenerator
 			# DESCRIPCIÓN: Regresa un hash, ya sea con un componente validos
 			# o con los datos faltantes (necesarion) y su erro para su corrección.
 			#
-			def errors
+			def component_errors
 				self.valid? ? false : self.errors.messages
 			end
 
