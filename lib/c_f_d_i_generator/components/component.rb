@@ -54,6 +54,12 @@ module CFDIGenerator
 
 
 			def build_component
+				self.valid? ? self.scheme : false
+			end
+
+			private
+
+			def scheme
 				scheme = {}
 				SCHEMES[ self.model_name.singular ].each do |k,v|
 					scheme[k] = self.instance_variable_get("@#{v}") if self.respond_to?(v) and !self.instance_variable_get("@#{v}").blank?
