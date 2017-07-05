@@ -38,24 +38,24 @@ module CFDIGenerator
 			# DESCRIPCIÓN: Helper de la gema (libreria) ActiveModel::Validations que valida 
 			# si es un numero.
 			#
-			# validates :folio, :subtotal, :descuento, :tipo_cambio, 
-			# 		:total, :metodo_pago, :lugar_expedicion,
-			# 		numericality: { message: @@numericality_message }
+			validates :folio, :subtotal, :descuento, :tipo_cambio, 
+					:total, :metodo_pago, :lugar_expedicion,
+					numericality: { message: @@numericality_message }
 
-			# validates :forma_pago,
-			# 		inclusion: { in: WAY_TO_PAY, message: @@inclusion_message } 
+			validates :forma_pago,
+					inclusion: { in: WAY_TO_PAY, message: @@inclusion_message } 
 
-			# validates :moneda,
-			# 		inclusion: { in: TYPE_OF_COIN, message: @@inclusion_message } 
+			validates :moneda,
+					inclusion: { in: TYPE_OF_COIN, message: @@inclusion_message } 
 
-			# validates :tipo_de_comprobante,
-			# 		inclusion: { in: TYPE_OF_RECEIPT, message: @@inclusion_message }
+			validates :tipo_de_comprobante,
+					inclusion: { in: TYPE_OF_RECEIPT, message: @@inclusion_message }
 
-			# validates :metodo_pago,
-			# 		inclusion: { in: PAYMENT_METHOD, message: @@inclusion_message }
+			validates :metodo_pago,
+					inclusion: { in: PAYMENT_METHOD, message: @@inclusion_message }
 
-		 	# validates :lugar_expedicion,
-			#  		inclusion: { in: PLACE_EXPEDITION  } <- validacion no aplicada verifica 'c_f_d_i_emitter/x_m_l_c_f_d_i_generetor/x_m_l_components/catalogs/constants'.
+		 	validates :lugar_expedicion,
+			 		inclusion: { in: PLACE_EXPEDITION  } <- validacion no aplicada verifica 'c_f_d_i_emitter/x_m_l_c_f_d_i_generetor/x_m_l_components/catalogs/constants'.
 
 
 			# DESCRIPCIÓN: Construye un hash con la informacion nesesaria para construir 
