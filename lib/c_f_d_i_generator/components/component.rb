@@ -9,10 +9,15 @@ module CFDIGenerator
 			include ActiveModel::Validations
 
 
-			# DESCRIPCIÓN: Incluyecdo elmodulo de catalogos de esta gema 
+			# DESCRIPCIÓN: Incluyecdo el modulo de catalogos 
 			# donde estan una serie de datos para validar.
 			#
-			# include CFDIEmitter::XMLComponents::Components::Catalogs::Constants
+			include CFDIGenerator::Components::Catalogs
+
+			# DESCRIPCIÓN: Incluyecdo el modulo de catalogos 
+			# donde estan una serie de datos para validar.
+			#
+			include CFDIGenerator::Components::Schemes
 
 
 			# DESCRIPCIÓN: Valores para los mensajes de error.
@@ -47,9 +52,11 @@ module CFDIGenerator
 
 
 			def build_component
-				return { 
-					"ERROR" => "CLASE BASE: Nada que mostrar" 
-				}
+				scheme = {}
+				SCHEMES[ self.model_name.singular ].each do |k,v|
+					scheme[k] = self.instance_variable_get("@#{v}") if self.respond_to?(v) and !self.instance_variable_get("@#{v}").blank?
+				end
+				return scheme
 			end
 		end
 	end
