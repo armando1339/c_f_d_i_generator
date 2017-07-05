@@ -1,5 +1,6 @@
 require 'active_model'
 require 'c_f_d_i_generator/components/catalogs'
+require 'c_f_d_i_generator/components/schemes'
 
 module CFDIGenerator
 	module Components 
