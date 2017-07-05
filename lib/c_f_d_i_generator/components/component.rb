@@ -26,7 +26,7 @@ module CFDIGenerator
 			# 
 			@@presence_message = 'no puede ser nulo o estar vacio.'
 			@@numericality_message = 'no es un numero.'
-			@@inclusion_message = "es invalido, no esta incluido en catalogos del SAT."
+			@@inclusion_message = "no esta incluido en catalogo."
 
 
 			# DESCRIPCIÓN: Inicializa el objeto con las variables de instancia necesarios.
