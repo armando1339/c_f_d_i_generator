@@ -1,5 +1,6 @@
 require "c_f_d_i_generator/version"
 require "c_f_d_i_generator/components/comprobante"
+require 'c_f_d_i_generator/components/catalogs'
 
 module CFDIGenerator
   class Voucher
