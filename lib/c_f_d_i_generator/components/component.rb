@@ -38,18 +38,12 @@ module CFDIGenerator
 				attributes.each_pair { |k,v| instance_variable_set( '@' + k.to_s, v ) }
 			end
 
-			# DESCRIPCIÓN: Pregunta si el objeto es valido.
-			#
-			def is_valid?
-				self.valid?
-			end 
-
 
 			# DESCRIPCIÓN: Regresa un hash, ya sea con un componente validos
 			# o con los datos faltantes (necesarion) y su erro para su corrección.
 			#
-			def response_of_validation
-				self.valid? ? self.build_component : self.errors.messages
+			def errors
+				self.valid? ? false : self.errors.messages
 			end
 
 

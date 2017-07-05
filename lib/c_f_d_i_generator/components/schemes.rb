@@ -8,7 +8,7 @@ module CFDIGenerator
 			SCHEMES = {
 				# => comprobante
 				'cfdi_generator_components_comprobante' => {
-					'Serie'								=>		:serie, # string, opcional
+					'Serie' 							=>		:serie, # string, opcional
 					'Folio'								=>		:folio, # string, opcional
 					'Fecha'								=>		:fecha, # tdCFDI:t_FechaH, requerido	
 					'Sello'								=>		:sello, # string, requerido
@@ -25,7 +25,11 @@ module CFDIGenerator
 					'MetodoPago'					=>		:metodo_pago, # catCFDI:c_MetodoPago, opcional
 					'LugarExpedicion'			=>		:lugar_expedicion, # catCFDI:c_CodigoPostal, requerido
 					'Confirmacion'				=>		:confirmacion, # string, opcional 
-				}
+				},
+
+				'cfdi_generator_components_cfdi_relacionados' => { 
+					"TipoRelacion" 				=> 		:tipo_relacion # catCFDI:c_TipoRelacion, requerido 
+				}			
 			}
 
 		end
