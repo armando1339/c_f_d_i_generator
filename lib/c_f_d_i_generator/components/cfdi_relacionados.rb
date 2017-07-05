@@ -24,9 +24,9 @@ module CFDIGenerator
 			# la presencia de los datos pasados al metodo y si es un numero.
 			#
 			validates :tipo_relacion, 
-					presence: { message: @@presence_message } 
-			#		numericality: { message: @@numericality_message },
-			#		inclusion: { in: RELATIONSHIP_TYPE, message: @@inclusion_message }
+					presence: { message: @@presence_message },
+					numericality: { message: @@numericality_message },
+					inclusion: { in: RELATIONSHIP_TYPE, message: @@inclusion_message }
 		end 
 	end
 end
