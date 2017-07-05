@@ -62,12 +62,16 @@ module CFDIGenerator
 			# el XML request para FEL.
 			#
 			def build_component
-				scheme = {}
-				scheme.merge! CONSTANTS_IN_THE_SCHEME
-				SCHEMES[ self.model_name.singular ].each do |k,v|
-					scheme[k] = self.instance_variable_get("@#{v}") if self.respond_to?(v) and !self.instance_variable_get("@#{v}").blank?
+				if self.valid? 
+					scheme = {}
+					scheme.merge! CONSTANTS_IN_THE_SCHEME
+					SCHEMES[ self.model_name.singular ].each do |k,v|
+						scheme[k] = self.instance_variable_get("@#{v}") if self.respond_to?(v) and !self.instance_variable_get("@#{v}").blank?
+					end
+					return scheme
+				else
+					return false
 				end
-				return scheme
 			end
 		end
 	end 
