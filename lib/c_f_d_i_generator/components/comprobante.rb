@@ -38,8 +38,8 @@ module CFDIGenerator
 			# DESCRIPCIÓN: Helper de la gema (libreria) ActiveModel::Validations que valida 
 			# si es un numero.
 			#
-			validates :folio, :subtotal, :descuento, :tipo_cambio, 
-					:total, :metodo_pago, :lugar_expedicion,
+			validates :folio, :forma_pago, :subtotal, :descuento, :tipo_cambio, 
+					:total, :lugar_expedicion,
 					numericality: { message: @@numericality_message }
 
 			validates :forma_pago,

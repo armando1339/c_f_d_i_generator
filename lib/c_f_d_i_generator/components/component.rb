@@ -15,7 +15,7 @@ module CFDIGenerator
 			# donde estan una serie de datos para validar.
 			#
 			include CFDIGenerator::Components::Catalogs
-			
+
 
 			# DESCRIPCIÓN: Incluyecdo el modulo de catalogos 
 			# donde estan una serie de datos para validar.
