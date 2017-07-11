@@ -40,19 +40,19 @@ module CFDIGenerator
 			#
 			validates :folio, :forma_pago, :subtotal, :descuento, :tipo_cambio, 
 					:total, :lugar_expedicion,
-					numericality: { message: @@numericality_message }
+					numericality: { message: @@numericality_message, :allow_blank => true }
 
 			validates :forma_pago,
-					inclusion: { in: WAY_TO_PAY, message: @@inclusion_message } 
+					inclusion: { in: WAY_TO_PAY, message: @@inclusion_message, :allow_blank => true } 
 
 			validates :moneda,
-					inclusion: { in: TYPE_OF_COIN, message: @@inclusion_message } 
+					inclusion: { in: TYPE_OF_COIN, message: @@inclusion_message, :allow_blank => true } 
 
 			validates :tipo_de_comprobante,
-					inclusion: { in: TYPE_OF_RECEIPT, message: @@inclusion_message }
+					inclusion: { in: TYPE_OF_RECEIPT, message: @@inclusion_message, :allow_blank => true }
 
 			validates :metodo_pago,
-					inclusion: { in: PAYMENT_METHOD, message: @@inclusion_message }
+					inclusion: { in: PAYMENT_METHOD, message: @@inclusion_message, :allow_blank => true }
 
 		 	# validates :lugar_expedicion,
 			#  		inclusion: { in: PLACE_EXPEDITION  } # <- validacion no aplicada verifica 'c_f_d_i_emitter/x_m_l_c_f_d_i_generetor/x_m_l_components/catalogs/constants'.
