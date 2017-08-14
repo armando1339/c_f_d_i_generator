@@ -40,8 +40,8 @@ module CFDIGenerator
 			end
 
 
-			# DESCRIPCIÓN: Regresa un hash, ya sea con un componente validos
-			# o con los datos faltantes (necesarion) y su erro para su corrección.
+			# DESCRIPCIÓN: Regresa mensajes de error si hay alguno,
+			# de lo contrario regresa "falso"
 			#
 			def component_errors
 				self.valid? ? false : self.errors.messages

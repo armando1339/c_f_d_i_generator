@@ -27,7 +27,7 @@ module CFDIGenerator
 			end
 
 			
-			# DESCRIPCIÓN: Helper de la gema (libreria) ActiveModel::Validations que valida 
+			# DESCRIPCIÓN: metodo de la gema (libreria) ActiveModel::Validations que valida 
 			# la presencia de los datos pasados al metodo.
 			#
 			validates :fecha, :sello, :no_certificado, :certificado, :subtotal, 
@@ -35,7 +35,7 @@ module CFDIGenerator
 					presence: { message: @@presence_message }
 			
 			
-			# DESCRIPCIÓN: Helper de la gema (libreria) ActiveModel::Validations que valida 
+			# DESCRIPCIÓN: metodo de la gema (libreria) ActiveModel::Validations que valida 
 			# si es un numero.
 			#
 			validates :folio, :forma_pago, :subtotal, :descuento, :tipo_cambio, 
@@ -65,8 +65,8 @@ module CFDIGenerator
 				if self.valid? 
 					scheme = {}
 					scheme.merge! CONSTANTS_IN_THE_SCHEME
-					SCHEMES[ self.model_name.singular ].each do |k,v|
-						scheme[k] = self.instance_variable_get("@#{v}") if self.respond_to?(v) and !self.instance_variable_get("@#{v}").blank?
+					SCHEMES[ self.model_name.singular ].each do |key,value|
+						scheme[key] = self.instance_variable_get("@#{value}") if self.respond_to?(value) and !self.instance_variable_get("@#{value}").blank?
 					end
 					return scheme
 				else

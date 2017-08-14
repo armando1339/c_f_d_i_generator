@@ -24,11 +24,28 @@ module CFDIGenerator
 					'TipoDeComprobante'		=>		:tipo_de_comprobante, # catCFDI:c_TipoDeComprobante, requerido
 					'MetodoPago'					=>		:metodo_pago, # catCFDI:c_MetodoPago, opcional
 					'LugarExpedicion'			=>		:lugar_expedicion, # catCFDI:c_CodigoPostal, requerido
-					'Confirmacion'				=>		:confirmacion, # string, opcional 
+					'Confirmacion'				=>		:confirmacion # string, opcional 
 				},
 
+				# => cfdi relacionados
 				'cfdi_generator_components_cfdi_relacionados' => { 
 					"TipoRelacion" 				=> 		:tipo_relacion # catCFDI:c_TipoRelacion, requerido 
+				},
+
+				'cfdi_generator_components_cfdi_relacionado' => {
+					"UUID" 								=> 		:uuid # catCFDI:c_TipoRelacion, requerido
+				},
+
+				# => emisor
+				'cfdi_generator_components_emisor' => {
+					'Rfc' 								=> 		:rfc,
+					'Nombre' 							=> 		:nombre, 
+					'RegimenFiscal' 			=> 		:regimen_fiscal
+				},
+
+				# => receptor
+				'cfdi_generator_components_receptor' => {
+
 				}			
 			}
 
