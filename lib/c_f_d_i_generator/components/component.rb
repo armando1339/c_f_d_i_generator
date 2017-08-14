@@ -5,20 +5,18 @@ require 'c_f_d_i_generator/components/schemes'
 module CFDIGenerator
 	module Components 
 		class Component
-			# DESCRIPCIÓN: Incluyecdo la gema de rails ActiveModel y su modulo Validations 
-			# para validar varios aspectos importantes y necesario de los datos recibidos por la clase.
+
+			# Incluyendo la gema de rails ActiveModel y su modulo Validations.
 			#
 			include ActiveModel::Validations
 
 
-			# DESCRIPCIÓN: Incluyecdo el modulo de catalogos 
-			# donde estan una serie de datos para validar.
+			# Incluyendo el modulo de catalogos 
 			#
 			include CFDIGenerator::Components::Catalogs
 
 
-			# DESCRIPCIÓN: Incluyecdo el modulo de catalogos 
-			# donde estan una serie de datos para validar.
+			# Incluyendo el modulo de schemes 
 			#
 			include CFDIGenerator::Components::Schemes
 
@@ -30,18 +28,13 @@ module CFDIGenerator
 			@@inclusion_message = "no esta incluido en catalogo."
 
 
-			# DESCRIPCIÓN: Inicializa el objeto con las variables de instancia necesarios.
-			#
-			# FUNCIONAMIENTO: recibe un hash con cualquier cantidad de valores,
-			# transforma todos los valores a variables de instancia.
-			#
 			def initialize( attributes = {} )
 				attributes.each_pair { |k,v| instance_variable_set( '@' + k.to_s, v ) }
 			end
 
 
-			# DESCRIPCIÓN: Regresa mensajes de error si hay alguno,
-			# de lo contrario regresa "falso"
+			# Regresa mensajes de error si hay alguno
+			# en la validacion de los datos
 			#
 			def component_errors
 				self.valid? ? false : self.errors.messages
