@@ -1,5 +1,5 @@
-require "bundler/setup"
-require "c_f_d_i_generator"
+require 'bundler/setup'
+require 'c_f_d_i_generator'
 require 'coveralls'
 Coveralls.wear!
 

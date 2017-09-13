@@ -51,36 +51,31 @@ module CFDIGenerator
                 :total,
                 :lugar_expedicion,
                 numericality: {
-                  message: @@numericality_message,
-                  allow_blank: true
+                  message: @@numericality_message
                 }
 
       validates :forma_pago,
                 inclusion: {
                   in: WAY_TO_PAY,
-                  message: @@inclusion_message,
-                  allow_blank: true
+                  message: @@inclusion_message
                 }
 
       validates :moneda,
                 inclusion: {
                   in: TYPE_OF_COIN,
-                  message: @@inclusion_message,
-                  allow_blank: true
+                  message: @@inclusion_message
                 }
 
       validates :tipo_de_comprobante,
                 inclusion: {
                   in: TYPE_OF_RECEIPT,
-                  message: @@inclusion_message,
-                  allow_blank: true
+                  message: @@inclusion_message
                 }
 
       validates :metodo_pago,
                 inclusion: {
                   in: PAYMENT_METHOD,
-                  message: @@inclusion_message,
-                  allow_blank: true
+                  message: @@inclusion_message
                 }
 
       # validates :lugar_expedicion,
